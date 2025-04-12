@@ -62,7 +62,6 @@ if (SpeechRecognition) {
                 console.log("Attempting to play sound. Source:", cheerSound.currentSrc || cheerSound.src);
                 cheerSound.currentTime = 0;
                 cheerSound.play().then(() => {
-                    console.log("Audio played successfully!");
                     createPopcornEffect();
                 }).catch(e => {
                     console.error("Audio play failed:", e);
