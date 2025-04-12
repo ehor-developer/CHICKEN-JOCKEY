@@ -1,0 +1,101 @@
+body.minecraft-style {
+    background-color: #2A641C;
+    font-family: "DotGothic16", sans-serif;
+    color: #FFFFFF;
+    padding: 20px;
+    image-rendering: pixelated;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #DDDDDD;
+    text-shadow: 2px 2px #333333;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    text-align: center;
+}
+img{
+    width: 100%;
+}
+.controls {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.mc-button {
+    background-color: #7f7f7f;
+    border: 2px solid #000000;
+    color: #FFFFFF;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2em;
+    font-family: "DotGothic16", sans-serif;
+    margin: 10px 5px;
+    cursor: pointer;
+    box-shadow: inset -2px -4px 0px 0px #5a5a5a, 2px 2px 0px 0px #000000;
+    image-rendering: pixelated;
+    transition: background-color 0.1s ease;
+}
+
+.mc-button:hover {
+    background-color: #8a8a8a;
+}
+
+.mc-button:active {
+    box-shadow: inset 2px 4px 0px 0px #5a5a5a, 0px 0px 0px 0px #000000;
+    position: relative;
+    top: 2px;
+    left: 1px;
+}
+
+#popcorn-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.popcorn {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #fefae0;
+    border-radius: 50% 40% / 40% 50%;
+    box-shadow: 1px 1px 2px rgba(188, 149, 92, 0.5);
+    opacity: 0;
+    --tx: 0px;
+    --ty: -250px;
+    --rotate-end: 720deg;
+    animation-name: fly-popcorn;
+    animation-duration: 1.2s;
+    animation-timing-function: cubic-bezier(0.3, 0.7, 0.4, 1.0);
+    animation-fill-mode: forwards;
+}
+
+@keyframes fly-popcorn {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, 0) rotate(0deg) scale(1);
+    }
+    30% {
+         opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--tx)), var(--ty)) rotate(var(--rotate-end)) scale(0.5);
+    }
+}
